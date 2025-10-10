@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(180deg, #cce4f7, #f3f3f3);
+    font-family: 'Poppins', sans-serif;
+    color: #222;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    background: white;
+    padding: 1rem;
+    border-radius: 1px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    width: 85%;
+    text-align: center;
+}
+
+h1,
+h2,
+h3,
+p,
+div {
+    margin: 10px 0;
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+p,
+div,
+input,
+button,
+textarea,
+select {
+    font-size: 1.4rem;
+}
+
+input,
+textarea,
+select,
+button {
+    margin: 3 px;
+    padding: 2px 2px;
+    border: 2px solid #000000;
+    border-radius: 8px;
+    font-family: inherit;
+
+}
+
+button {
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button:hover {
+    background-color: #444;
+}
+
+textarea {
+    resize: none;
+}
+
+.field-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.4rem;
+ 
+
+}
+
+.field-row input,
+.field-row select {
+
+    font-size: 1.4rem;
+    font-family: inherit;
+    max-width: 100%;
+
+}
+
+input {
+    width: 50%;
+}
+
+.bigger {
+    font-size: 3.4rem;
+}
+
+@media screen and (min-width: 800px) {
+    input {
+    width: 30%;
+}
+}

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IHS laskuri</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+<body>
+
+  <div class="container">
+      <h1>IHS Laskuri</h1>
+    <div class="top">
+  <p>Hiilihydraatit 100g/ml</p>
+  <input type="number" id="carbsIn100g" inputmode="decimal">
+
+  <p>Syödyn ruuan määrä</p>
+  <div class="field-row">
+  <input type="number" id="foodAmount" inputmode="decimal">
+  <select id="unit" name="unit">
+    <option value="gram">g/ml</option>
+    <option value="kilo">kg/L</option>
+  </select>
+  </div>
+
+  
+
+  <button id="calculateCarbs">Laske</button>
+  
+  <p id="result">Yhteensä: 0 g hiilihydraatteja</p>
+  <HR>
+
+
+  <button id="addToList">Lisää listaan</button>
+  <br><br>
+  <textarea id="sumList" rows="6" cols="14" ></textarea>
+
+  <br>
+
+  <p id="totalCarbs">Yhteensä: 0 g</p>
+<HR>
+
+</div>
+<div class="middle-left">
+<form class="form-inline" action="/action_page.php">
+  <p>Insuliinitarve</p>
+  <input type="number" id="insulineNeed" inputmode="decimal">
+
+  </div><div class="middle-right">
+  <p>Insuliiniresistenssi</p>
+  <input type="number" id="insulineResistance" inputmode="decimal">
+  <label>
+  </label>
+</div>
+
+</form>
+ <div class="bottom">
+  <button id="calculateInsulineAmount">Laske tarvittava määrä</button>
+<p>Tarvittava insuliinimäärä: </p>
+  <p id="insulineAmount" class="bigger">Ei laskettu</p>
+
+  <HR>
+<br><br>
+<h2>ÄLÄ LUOTA PELKÄSTÄÄN TÄMÄN SIVUSTON TULOKSIIN, TÄMÄ ON PELKKÄ DEMO!</h2>
+</div>
+</div>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
