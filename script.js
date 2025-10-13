@@ -13,9 +13,48 @@ const insulineAmount = document.getElementById("insulineAmount");
 const calculateInsulineAmount = document.getElementById(
   "calculateInsulineAmount"
 );
-
+const carbsInputField = document.getElementById("carbsInput");
+const addCarbsButton = document.getElementById("addCarbsButton");
+const carbsList = document.getElementById("carbsList");
+const summa = document.getElementById("insulineAmount");
 let currentCarbs = 0;
 let totalCarb = 0;
+let carbs = [];
+
+addCarbsButton.addEventListener("click", () => {
+  const value = carbsInputField.value.trim();
+  if (value === "") return;
+
+  carbs.push(Number(value));
+  carbsInputField.value = "";
+  renderList();
+});
+
+function renderList() {
+  carbsList.innerHTML = "";
+  carbs.forEach((num, index) => {
+    const li = document.createElement("li");
+    li.textContent = `${num} g`;
+
+    const delBtn = document.createElement("button");
+    delBtn.textContent = "Poista";
+    delBtn.classList.add("delete-btn");
+    delBtn.onclick = () => {
+      carbs.splice(index, 1);
+      renderList();
+    };
+
+    li.appendChild(delBtn);
+    carbsList.appendChild(li);
+  });
+
+  let sum = 0;
+  for (let i = 0; i < carbs.length; i++) {
+    sum += carbs[i];
+  }
+
+  totalCarbs.textContent = `Yhteensä: ${sum} g`;
+}
 
 calculateCarbs.addEventListener("click", () => {
   const in100g = parseFloat(carbsIn100g.value) || 0;
@@ -29,29 +68,30 @@ calculateCarbs.addEventListener("click", () => {
 
   result.textContent = `Yhteensä:  ${currentCarbs} g`;
 });
-// todo, tee sumlististä oma funktio :) 
+
 addToList.addEventListener("click", () => {
-  if (carbsIn100g.value || foodAmount.value) {
-    sumList.value += `${currentCarbs}\n`;
-    const lines = sumList.value.trim().split("\n");
-    const numbers = lines
-      .map((line) => parseFloat(line))
-      .filter((num) => !isNaN(num));
-    const total = numbers.reduce((a, b) => a + b, 0);
-    totalCarb = total;
-    totalCarbs.textContent = `Yhteensä: ${total} g`;
-  }
+
+  const value = currentCarbs;
+  if (value === 0) return;
+
+  carbs.push(Number(value));
+  carbsInputField.value = "";
+  renderList();
 });
 
-sumList.addEventListener("input", () => {
+sumList.addEventListener("carbInput", () => {
+  sumOfTheList();
+});
+
+function sumOfTheList() {
   const lines = sumList.value.trim().split("\n");
-  const numbers = lines
+  const carbsList = lines
     .map((line) => parseFloat(line))
     .filter((num) => !isNaN(num));
-  const total = numbers.reduce((a, b) => a + b, 0);
-  totalCarbs.textContent = `Yhteensä: ${total} g`;
+  const total = carbsList.reduce((a, b) => a + b, 0);
   totalCarb = total;
-});
+  totalCarbs.textContent = `Yhteensä: ${total} g`;
+}
 
 calculateInsulineAmount.addEventListener("click", () => {
   console.log(insulineNeed);
@@ -65,8 +105,8 @@ function saveUserData() {
   localStorage.setItem("insulineNeed", insulineNeed.value);
 }
 
-insulineResistance.addEventListener("input", saveUserData);
-insulineNeed.addEventListener("input", saveUserData);
+insulineResistance.addEventListener("carbInput", saveUserData);
+insulineNeed.addEventListener("carbInput", saveUserData);
 
 window.addEventListener("load", () => {
   insulineResistance.value = localStorage.getItem("insulineResistance") || "";

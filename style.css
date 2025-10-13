@@ -97,6 +97,42 @@ input {
     font-size: 3.4rem;
 }
 
+ ul {
+      list-style: none;
+      padding: 0;
+      margin-top: 1em;
+      
+    }
+li {
+  background: #f0f0f0;
+  margin-bottom: 5px;
+  padding: 8px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 200px;
+  margin-left: auto;
+  margin-right: auto; /* centers each item */
+}
+    .delete-btn {
+      background: crimson;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      
+    }
+
+        #addCarbsButton {
+      background: rgb(25, 130, 12);
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      
+    }
+
 @media screen and (min-width: 800px) {
     input {
     width: 30%;
