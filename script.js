@@ -54,6 +54,7 @@ function renderList() {
   }
 
   totalCarbs.textContent = `Yhteensä: ${sum} g`;
+  totalCarb = sum;
 }
 
 calculateCarbs.addEventListener("click", () => {
@@ -79,19 +80,7 @@ addToList.addEventListener("click", () => {
   renderList();
 });
 
-sumList.addEventListener("carbInput", () => {
-  sumOfTheList();
-});
 
-function sumOfTheList() {
-  const lines = sumList.value.trim().split("\n");
-  const carbsList = lines
-    .map((line) => parseFloat(line))
-    .filter((num) => !isNaN(num));
-  const total = carbsList.reduce((a, b) => a + b, 0);
-  totalCarb = total;
-  totalCarbs.textContent = `Yhteensä: ${total} g`;
-}
 
 calculateInsulineAmount.addEventListener("click", () => {
   console.log(insulineNeed);
