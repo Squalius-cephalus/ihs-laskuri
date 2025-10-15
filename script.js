@@ -17,6 +17,8 @@ const carbsInputField = document.getElementById("carbsInput");
 const addCarbsButton = document.getElementById("addCarbsButton");
 const carbsList = document.getElementById("carbsList");
 const summa = document.getElementById("insulineAmount");
+const clearCarbs = document.getElementById("clearCarbs");
+const clearList = document.getElementById("clearList");
 let currentCarbs = 0;
 let totalCarb = 0;
 let carbs = [];
@@ -29,6 +31,19 @@ addCarbsButton.addEventListener("click", () => {
   carbsInputField.value = "";
   renderList();
 });
+
+clearList.addEventListener("click", () => {
+  carbs = [];
+  renderList();
+});
+
+clearCarbs.addEventListener("click", () => {
+  carbsIn100g.value = "";
+  foodAmount.value = "";
+});
+
+
+
 
 function renderList() {
   carbsList.innerHTML = "";

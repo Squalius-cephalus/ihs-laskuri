@@ -115,7 +115,7 @@ li {
   margin-left: auto;
   margin-right: auto; /* centers each item */
 }
-    .delete-btn {
+    .delete-btn, #clearCarbs, #clearList{
       background: crimson;
       color: white;
       border: none;
@@ -124,7 +124,7 @@ li {
       
     }
 
-        #addCarbsButton {
+        #addCarbsButton, #addToList{
       background: rgb(25, 130, 12);
       color: white;
       border: none;
