@@ -58,7 +58,7 @@ function renderList() {
 
     const delBtn = document.createElement("button");
     delBtn.textContent = "Poista";
-    delBtn.classList.add("delete-btn");
+    delBtn.classList.add("deleteButton");
     delBtn.onclick = () => {
       carbs.splice(index, 1);
       renderList();
