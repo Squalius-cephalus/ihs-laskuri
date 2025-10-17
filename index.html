@@ -4,7 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>IHS laskuri</title>
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
   <link rel="stylesheet" type="text/css" href="style.css">
     
 
@@ -27,30 +30,19 @@
   </select>
   </form>
   </div>
-
-  
-
-  
-  <p id="result">Yhteensä: 0 g hiilihydraatteja</p>
-
-
-
+  <p id="result" class="important">Yhteensä: 0 g</p>
   <button id="addToList" class="addButton">Lisää listaan</button>
     <button id="clearCarbs" class="deleteButton">Tyhjennä</button>
-  <br> <HR><br> 
+  <br> <HR> 
   <!-- <textarea id="sumList" rows="6" cols="14" ></textarea> -->
-
+<h3>Hiilihydraatit</h3>
   <input type="number" id="carbsInput" placeholder="Lisää manuaalisesti" />
   <button id="addCarbsButton" class="addButton">Lisää</button>
-
   <ul id="carbsList"></ul>
-
-  
   <br>
-
-  <p id="totalCarbs">Yhteensä: 0 g</p><br>
+  <p id="totalCarbs" class="important">Yhteensä: 0 g</p><br>
   <button  id="clearList" class="deleteButton">Tyhjennä</button>
-<HR>
+<hr>
 
 </div>
 <div class="middle-left">
@@ -72,9 +64,10 @@
   <p id="insulineAmount" class="bigger">Ei laskettu</p>
 
   <HR>
-<br><br>
-<footer><h3>ÄLÄ LUOTA PELKÄSTÄÄN TÄMÄN SIVUSTON TULOKSIIN, TÄMÄ ON PELKKÄ DEMO!</h2></footer>
-
+<footer><p>Älä luota pelkästään tämän laskurin tuloksiin!</p><p>
+      IHS laskuria ylläpitää
+      <a href="https://github.com/Squalius-cephalus">Squalius-cephalus</a>
+    </p>
 </div>
 </div>
 
