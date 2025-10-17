@@ -4,17 +4,28 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>IHS laskuri</title>
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
   <link rel="stylesheet" type="text/css" href="style.css">
     
 
 </head>
 <body>
 
+
   <div class="container">
-      <h1>IHS Laskuri</h1>
+
+
+
+
+      <h1>IHS Laskuri</h1>    <button class="top-right-button" onclick="window.dialog.show();">?</button>
+
     <div class="top">
   <p>Hiilihydraatit 100g/ml</p>
+  <form>
   <input type="number" id="carbsIn100g" inputmode="decimal">
 
   <p>Syödyn ruuan määrä</p>
@@ -24,36 +35,25 @@
     <option value="gram">g/ml</option>
     <option value="kilo">kg/L</option>
   </select>
+  </form>
   </div>
-
-  
-
-  <button id="calculateCarbs">Laske</button>
-  
-  <p id="result">Yhteensä: 0 g hiilihydraatteja</p>
-
-
-
-  <button id="addToList">Lisää listaan</button>
-    <button id="clearCarbs">Tyhjennä</button>
-  <br> <HR><br> 
+  <p id="result" class="important">Yhteensä: 0 g</p>
+  <button id="addToList" class="addButton">Lisää listaan</button>
+    <button id="clearCarbs" class="deleteButton">Tyhjennä</button>
+  <br> <HR> 
   <!-- <textarea id="sumList" rows="6" cols="14" ></textarea> -->
-
+<h3>Hiilihydraatit</h3>
   <input type="number" id="carbsInput" placeholder="Lisää manuaalisesti" />
-  <button id="addCarbsButton">Lisää</button>
-
+  <button id="addCarbsButton" class="addButton">Lisää</button>
   <ul id="carbsList"></ul>
-
-  
   <br>
-
-  <p id="totalCarbs">Yhteensä: 0 g</p><br>
-  <button id="clearList">Tyhjennä</button>
-<HR>
+  <p id="totalCarbs" class="important">Yhteensä: 0 g</p><br>
+  <button  id="clearList" class="deleteButton">Tyhjennä</button>
+<hr>
 
 </div>
 <div class="middle-left">
-<form class="form-inline" action="/action_page.php">
+<form class="form-inline">
   <p>Insuliinitarve</p>
   <input type="number" id="insulineNeed" inputmode="decimal">
 
@@ -66,17 +66,57 @@
 
 </form>
  <div class="bottom">
-  <button id="calculateInsulineAmount">Laske tarvittava määrä</button>
+  <button id="calculateInsulineAmount" class="calculateButton">Laske tarvittava määrä</button>
 <p>Tarvittava insuliinimäärä: </p>
   <p id="insulineAmount" class="bigger">Ei laskettu</p>
 
   <HR>
-<br><br>
-<h2>ÄLÄ LUOTA PELKÄSTÄÄN TÄMÄN SIVUSTON TULOKSIIN, TÄMÄ ON PELKKÄ DEMO!</h2>
+<footer><p>Älä luota pelkästään tämän laskurin tuloksiin!</p><p>
+      IHS laskuria kehittää
+      <a href="https://github.com/Squalius-cephalus">Squalius-cephalus</a>
+    </p>
 </div>
 </div>
 
   <script src="script.js"></script>
 
+
+  <dialog id="dialog">
+    <h2>Mikä on IHS?</h2>
+
+    <details>
+      <summary>Näytä/Piiloita</summary>
+  <p>IHS eli In­su­liini-hii­li­hy­draatti -suhde, jolla voidaan arvioida 
+    tarvittava määrä insuliinia diabetes potilaalle. Lisätietoa: <a href="https://www.terveyskirjasto.fi/dlk00774#s2"> Terveyskirjasto</a>
+  </p></details>
+  <h2>Miten laskuria käytetään?</h2>
+<details>
+  <summary>Näytä/Piiloita</summary>
+  
+  <p>Tarvitset ruuan hiilihydraattiarvon ja määrän mitä olet syömässä. Laita nämä laskuriin, jolloin näet kuinka paljon ruuassa on hiilihydraatteja. <br><br>Lisää arvo listaan, voit myös manuaalisesti lisätä arvoja listalle.
+</p>
+
+
+</details>
+  <h2>Mistä tiedän insuliinitarpeen?
+</h2>
+<details>
+  <summary>Näytä/Piiloita</summary>
+<p>Tämän arvon lääkäri voi vain arvioida, älä missään nimessä tee omia päätelmiä omasta insuliinitarpeesta tai resistenssitä. <b>Kysy omalta diabeteslääkäriltä nämä arvot!</b>
+</p></details>
+  <h2>Insuliinin laskeminen</h2>
+<details>
+<summary>Näytä/Piiloita</summary>
+<p>Kun olet laskenut ruuan hiilihydraattimäärän, voi laittaa laskuriin insuliinitarpeesi ja resistenssinsi(lue aikaisempi osio, jos et tiedä näitä).
+<br><br>
+Paina “Laske tarvittava määrä”, jolloin laskuri antaa arvon kuinka monta insuliiniyksikköä tarvitset laskettuun hiilihydraattimäärään.</p>
+</details>
+<h2>Voinko luottaa tähän laskuriin?</h2>
+<details>
+<summary>Näytä/Piiloita</summary>
+<p>Älä luota pelkästään tämän laskurin tuloksiin, on suositeltavaa tehdä omat IHS laskelmat ja verrata niitä tämän laskurin tuloksiin. <br><br>Tämä on pelkkä henkilökohtainen projekti, jota kehittää <a href="https://github.com/Squalius-cephalus">Squalius-cephalus.</a></p>
+</details>
+  <button  onclick="window.dialog.close();">Sulje</button>
+</dialog>
 </body>
 </html>

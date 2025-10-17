@@ -1,49 +1,54 @@
 const carbsIn100g = document.getElementById("carbsIn100g");
 const foodAmount = document.getElementById("foodAmount");
 const unit = document.getElementById("unit");
-const calculateCarbs = document.getElementById("calculateCarbs");
 const addToList = document.getElementById("addToList");
 const result = document.getElementById("result");
-const sumList = document.getElementById("sumList");
-const totalButton = document.getElementById("totalButton");
 const totalCarbs = document.getElementById("totalCarbs");
 const insulineResistance = document.getElementById("insulineResistance");
 const insulineNeed = document.getElementById("insulineNeed");
-const insulineAmount = document.getElementById("insulineAmount");
 const calculateInsulineAmount = document.getElementById(
   "calculateInsulineAmount"
 );
-const carbsInputField = document.getElementById("carbsInput");
+const carbsInput = document.getElementById("carbsInput");
 const addCarbsButton = document.getElementById("addCarbsButton");
 const carbsList = document.getElementById("carbsList");
-const summa = document.getElementById("insulineAmount");
+const insulineAmount = document.getElementById("insulineAmount");
 const clearCarbs = document.getElementById("clearCarbs");
 const clearList = document.getElementById("clearList");
+
 let currentCarbs = 0;
 let totalCarb = 0;
 let carbs = [];
 
 addCarbsButton.addEventListener("click", () => {
-  const value = carbsInputField.value.trim();
+  const value = carbsInput.value.trim();
   if (value === "") return;
+toList(value);
+});
+
+addToList.addEventListener("click", () => {
+  const value = currentCarbs;
+  if (value === 0) return;
+
+toList(value);
+});
+
+carbsInput.addEventListener("keypress", function(event) {
+  if (event.key === "Enter") {
+  const value = carbsInput.value.trim();
+  if (value === 0) return;
+
+toList(value);
+  }
+});
+
+
+function toList(value){
 
   carbs.push(Number(value));
-  carbsInputField.value = "";
+  carbsInput.value = "";
   renderList();
-});
-
-clearList.addEventListener("click", () => {
-  carbs = [];
-  renderList();
-});
-
-clearCarbs.addEventListener("click", () => {
-  carbsIn100g.value = "";
-  foodAmount.value = "";
-});
-
-
-
+}
 
 function renderList() {
   carbsList.innerHTML = "";
@@ -53,7 +58,7 @@ function renderList() {
 
     const delBtn = document.createElement("button");
     delBtn.textContent = "Poista";
-    delBtn.classList.add("delete-btn");
+    delBtn.classList.add("deleteButton");
     delBtn.onclick = () => {
       carbs.splice(index, 1);
       renderList();
@@ -72,7 +77,11 @@ function renderList() {
   totalCarb = sum;
 }
 
-calculateCarbs.addEventListener("click", () => {
+carbsIn100g.addEventListener("input", calculateCarbs);
+foodAmount.addEventListener("input", calculateCarbs);
+
+
+function calculateCarbs (){
   const in100g = parseFloat(carbsIn100g.value) || 0;
   const amount = parseFloat(foodAmount.value) || 0;
   if (unit.value === "gram") {
@@ -82,19 +91,8 @@ calculateCarbs.addEventListener("click", () => {
     currentCarbs = Math.round((in100g / 100) * (amount * 1000));
   }
 
-  result.textContent = `Yhteensä:  ${currentCarbs} g`;
-});
-
-addToList.addEventListener("click", () => {
-
-  const value = currentCarbs;
-  if (value === 0) return;
-
-  carbs.push(Number(value));
-  carbsInputField.value = "";
-  renderList();
-});
-
+  result.textContent = `Yhteensä:  ${currentCarbs} g hiilihydraatteja`;
+}
 
 
 calculateInsulineAmount.addEventListener("click", () => {
@@ -109,10 +107,23 @@ function saveUserData() {
   localStorage.setItem("insulineNeed", insulineNeed.value);
 }
 
-insulineResistance.addEventListener("carbInput", saveUserData);
-insulineNeed.addEventListener("carbInput", saveUserData);
+
+insulineResistance.addEventListener("input", saveUserData);
+insulineNeed.addEventListener("input", saveUserData);
 
 window.addEventListener("load", () => {
   insulineResistance.value = localStorage.getItem("insulineResistance") || "";
   insulineNeed.value = localStorage.getItem("insulineNeed") || "";
+});
+
+// Maybe I should make just one button to clear fields etc, maybe.
+
+clearList.addEventListener("click", () => {
+  carbs = [];
+  renderList();
+});
+
+clearCarbs.addEventListener("click", () => {
+  carbsIn100g.value = "";
+  foodAmount.value = "";
 });
