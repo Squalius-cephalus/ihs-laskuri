@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>IHS laskuri</title>
+  
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -14,8 +15,14 @@
 </head>
 <body>
 
+
   <div class="container">
-      <h1>IHS Laskuri</h1>
+
+
+
+
+      <h1>IHS Laskuri</h1>    <button class="top-right-button" onclick="window.dialog.show();">?</button>
+
     <div class="top">
   <p>Hiilihydraatit 100g/ml</p>
   <form>
@@ -65,7 +72,7 @@
 
   <HR>
 <footer><p>Älä luota pelkästään tämän laskurin tuloksiin!</p><p>
-      IHS laskuria ylläpitää
+      IHS laskuria kehittää
       <a href="https://github.com/Squalius-cephalus">Squalius-cephalus</a>
     </p>
 </div>
@@ -73,5 +80,43 @@
 
   <script src="script.js"></script>
 
+
+  <dialog id="dialog">
+    <h2>Mikä on IHS?</h2>
+
+    <details>
+      <summary>Näytä/Piiloita</summary>
+  <p>IHS eli In­su­liini-hii­li­hy­draatti -suhde, jolla voidaan arvioida 
+    tarvittava määrä insuliinia diabetes potilaalle. Lisätietoa: <a href="https://www.terveyskirjasto.fi/dlk00774#s2"> Terveyskirjasto</a>
+  </p></details>
+  <h2>Miten laskuria käytetään?</h2>
+<details>
+  <summary>Näytä/Piiloita</summary>
+  
+  <p>Tarvitset ruuan hiilihydraattiarvon ja määrän mitä olet syömässä. Laita nämä laskuriin, jolloin näet kuinka paljon ruuassa on hiilihydraatteja. <br><br>Lisää arvo listaan, voit myös manuaalisesti lisätä arvoja listalle.
+</p>
+
+
+</details>
+  <h2>Mistä tiedän insuliinitarpeen?
+</h2>
+<details>
+  <summary>Näytä/Piiloita</summary>
+<p>Tämän arvon lääkäri voi vain arvioida, älä missään nimessä tee omia päätelmiä omasta insuliinitarpeesta tai resistenssitä. <b>Kysy omalta diabeteslääkäriltä nämä arvot!</b>
+</p></details>
+  <h2>Insuliinin laskeminen</h2>
+<details>
+<summary>Näytä/Piiloita</summary>
+<p>Kun olet laskenut ruuan hiilihydraattimäärän, voi laittaa laskuriin insuliinitarpeesi ja resistenssinsi(lue aikaisempi osio, jos et tiedä näitä).
+<br><br>
+Paina “Laske tarvittava määrä”, jolloin laskuri antaa arvon kuinka monta insuliiniyksikköä tarvitset laskettuun hiilihydraattimäärään.</p>
+</details>
+<h2>Voinko luottaa tähän laskuriin?</h2>
+<details>
+<summary>Näytä/Piiloita</summary>
+<p>Älä luota pelkästään tämän laskurin tuloksiin, on suositeltavaa tehdä omat IHS laskelmat ja verrata niitä tämän laskurin tuloksiin. <br><br>Tämä on pelkkä henkilökohtainen projekti, jota kehittää <a href="https://github.com/Squalius-cephalus">Squalius-cephalus.</p>
+</details>
+  <button  onclick="window.dialog.close();">Sulje</button>
+</dialog>
 </body>
 </html>
