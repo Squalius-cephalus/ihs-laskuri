@@ -91,7 +91,7 @@ function calculateCarbs (){
     currentCarbs = Math.round((in100g / 100) * (amount * 1000));
   }
 
-  result.textContent = `Yhteensä:  ${currentCarbs} g hiilihydraatteja`;
+  result.textContent = `Hiilihydraatteja:  ${currentCarbs} g`;
 }
 
 
@@ -120,6 +120,7 @@ window.addEventListener("load", () => {
 
 clearList.addEventListener("click", () => {
   carbs = [];
+  insulineAmount.textContent = `Ei laskettu`;
   renderList();
 });
 

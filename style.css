@@ -161,11 +161,14 @@ li {
     input {
     width: 30%;
 }
+#dialog {
+    width: 80%;
+}
 }
 
 
 #dialog {
-    width: 80%;
+    width: 50%;
     background-color: rgb(255, 255, 255);
 
     justify-content: center;
