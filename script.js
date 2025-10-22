@@ -79,7 +79,7 @@ function renderList() {
 
 carbsIn100g.addEventListener("input", calculateCarbs);
 foodAmount.addEventListener("input", calculateCarbs);
-
+unit.addEventListener("input", calculateCarbs);
 
 function calculateCarbs (){
   const in100g = parseFloat(carbsIn100g.value) || 0;
