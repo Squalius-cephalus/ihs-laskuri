@@ -96,9 +96,13 @@ function calculateCarbs (){
 
 
 calculateInsulineAmount.addEventListener("click", () => {
-  console.log(insulineNeed);
+  
   const totalInsuline =
     totalCarb / (500 / insulineNeed.value / insulineResistance.value);
+    if(totalInsuline == 0){
+      insulineAmount.textContent = `Lista on tyhjä!`;
+      return;
+    }
   insulineAmount.textContent = `${Math.round(totalInsuline)}`;
 });
 
@@ -127,4 +131,6 @@ clearList.addEventListener("click", () => {
 clearCarbs.addEventListener("click", () => {
   carbsIn100g.value = "";
   foodAmount.value = "";
+  calculateCarbs();
+
 });
